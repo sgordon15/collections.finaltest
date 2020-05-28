@@ -3,6 +3,8 @@ package edu.ti.caih313.collections.aggregate;
 import edu.ti.caih313.collections.dataobj.Name;
 import edu.ti.caih313.collections.dataobj.Person;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalDouble;
@@ -13,14 +15,14 @@ import static edu.ti.caih313.collections.dataobj.Person.Gender.*;
 public class PeopleFilterDemo {
     public static void main(String... args) {
         Person personArray[] = {
-                new Person(new Name("John", "Smith"), MALE, 42),
-                new Person(new Name("Karl", "Ng"), MALE, 73),
-                new Person(new Name("Jeff", "Smith"), MALE, 21),
-                new Person(new Name("Tom", "Rich"), MALE, 18),
-                new Person(new Name("Bob", "Smith"), MALE, 13),
-                new Person(new Name("Jane", "Doe"), FEMALE, 27),
-                new Person(new Name("Tony", "Stark"), MALE, 52),
-                new Person(new Name("Bo", "Peep"), FEMALE, 205)
+                new Person(new Name("John", "Smith"), MALE, LocalDate.of(1978, Month.MARCH, 15)),
+                new Person(new Name("Karl", "Ng"), MALE, LocalDate.of(1948, Month.JANUARY, 3)),
+                new Person(new Name("Jeff", "Smith"), MALE, LocalDate.of(1998, Month.MAY, 13)),
+                new Person(new Name("Tom", "Rich"), MALE, LocalDate.of(2003, Month.MAY, 13)),
+//                new Person(new Name("Bob", "Smith"), MALE, 13),
+//                new Person(new Name("Jane", "Doe"), FEMALE, 27),
+//                new Person(new Name("Tony", "Stark"), MALE, 52),
+                new Person(new Name("Bo", "Peep"), FEMALE, LocalDate.of(1624, Month.FEBRUARY, 23))
         };
 
         System.out.println("All persons");

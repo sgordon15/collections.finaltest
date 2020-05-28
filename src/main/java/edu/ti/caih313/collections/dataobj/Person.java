@@ -1,5 +1,8 @@
 package edu.ti.caih313.collections.dataobj;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Person {
     private Name name;
     private Gender gender;
@@ -8,14 +11,14 @@ public class Person {
 
     //age in years
     //TODO -- replace by Date birthday, and getAge that calculates age
-    private Integer age;
+    private LocalDate birthDate;
 
     public enum Gender {MALE, FEMALE}
 
-    public Person(Name name, Gender gender, Integer age) {
+    public Person(Name name, Gender gender, LocalDate birthDate) {
         this.name = name;
         this.gender = gender;
-        this.age = age;
+        this.birthDate = birthDate;
     }
 
     public Name getName() {
@@ -31,7 +34,8 @@ public class Person {
     }
 
     public Integer getAge() {
-        return age;
+        Period ageNow = Period.between(birthDate, LocalDate.now());
+        return ageNow.getYears();
     }
 
     @Override
@@ -39,7 +43,7 @@ public class Person {
         return "Person{" +
                 "name=" + name +
                 ", gender=" + gender +
-                ", age=" + age
+                ", birthDate=" + birthDate
                 + "}";
     }
 }

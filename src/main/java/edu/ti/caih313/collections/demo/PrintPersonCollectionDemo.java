@@ -3,6 +3,8 @@ package edu.ti.caih313.collections.demo;
 import edu.ti.caih313.collections.dataobj.Name;
 import edu.ti.caih313.collections.dataobj.Person;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 
 import static edu.ti.caih313.collections.dataobj.Person.Gender.*;
@@ -10,10 +12,10 @@ import static edu.ti.caih313.collections.dataobj.Person.Gender.*;
 public class PrintPersonCollectionDemo {
 
     public static void main(String[] args) {
-        Person bob = new Person(new Name("Bob", "Smith"), MALE, 2);
-        Person jane = new Person(new Name("Jane", "Doe"), FEMALE, 3);
-        Person ironMan = new Person(new Name("Tony", "Stark"), MALE, 5);
-        Person boPeep = new Person(new Name("Bo", "Peep"), FEMALE, 1);
+        Person bob = new Person(new Name("Bob", "Smith"), MALE, LocalDate.of(1960, Month.MARCH, 15));
+        Person jane = new Person(new Name("Jane", "Doe"), FEMALE, LocalDate.of(2007, Month.JANUARY, 3));
+        Person ironMan = new Person(new Name("Tony", "Stark"), MALE,LocalDate.of(1968, Month.MAY, 13) );
+        Person boPeep = new Person(new Name("Bo", "Peep"), FEMALE, LocalDate.of(1624, Month.FEBRUARY, 23));
 
         List<Person> personList = new ArrayList<>();
         personList.add(bob);
