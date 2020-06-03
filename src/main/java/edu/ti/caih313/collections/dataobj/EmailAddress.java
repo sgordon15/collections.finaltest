@@ -9,7 +9,7 @@ public class EmailAddress {
     Map<Type, String> emailMap = new HashMap<>();
 
     public EmailAddress(String emailAddress, Type type) {
-        if (!valid(emailAddress)) {
+        if (!validate(emailAddress)) {
             throw new InvalidParameterException("Email address not valid: '" + emailAddress + "'");
         }
         emailMap.put(type, emailAddress);
@@ -35,7 +35,7 @@ public class EmailAddress {
         return emailMap.get(type);
     }
 
-    private boolean valid(String emailAddress) {
+    boolean validate(String emailAddress) {
         return (emailAddress != null) && emailAddress.contains("@");
     }
 }
