@@ -6,7 +6,6 @@ import edu.ti.caih313.collections.dataobj.Person;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Arrays;
-import java.util.List;
 import java.util.OptionalDouble;
 import java.util.stream.Stream;
 
@@ -19,9 +18,9 @@ public class PeopleFilterDemo {
                 new Person(new Name("Karl", "Ng"), MALE, LocalDate.of(1948, Month.JANUARY, 3)),
                 new Person(new Name("Jeff", "Smith"), MALE, LocalDate.of(1998, Month.MAY, 13)),
                 new Person(new Name("Tom", "Rich"), MALE, LocalDate.of(2003, Month.MAY, 13)),
-//                new Person(new Name("Bob", "Smith"), MALE, 13),
-//                new Person(new Name("Jane", "Doe"), FEMALE, 27),
-//                new Person(new Name("Tony", "Stark"), MALE, 52),
+                new Person(new Name("Bob", "Smith"), MALE, LocalDate.of(2007, Month.APRIL, 1)),
+                new Person(new Name("Jane", "Doe"), FEMALE, LocalDate.of(1993, Month.OCTOBER, 30)),
+                new Person(new Name("Tony", "Stark"), MALE, LocalDate.of(1968, Month.JULY, 16)),
                 new Person(new Name("Bo", "Peep"), FEMALE, LocalDate.of(1624, Month.FEBRUARY, 23))
         };
 
@@ -35,21 +34,21 @@ public class PeopleFilterDemo {
         System.out.print("\n");
         System.out.println("All persons older than 20");
         Arrays.stream(personArray)
-                .filter(p -> p.getAge()>20)
+                .filter(p -> p.getAge() > 20)
                 .forEach(e -> System.out.println(e.getName()));
 
         System.out.print("\n");
         System.out.println("All " + MALE + " persons");
         Arrays.stream(personArray)
-                .filter(p -> p.getGender()==MALE)
+                .filter(p -> p.getGender() == MALE)
                 .forEach(p -> System.out.println(p.getName()));
 
         System.out.print("\n");
         OptionalDouble averageFemaleAge =
                 Arrays.stream(personArray)
-                .filter(p -> p.getGender()==FEMALE)
-                .mapToInt(Person::getAge) // <=> mapToInt(p -> p.getAge())
-                .average();
+                        .filter(p -> p.getGender() == FEMALE)
+                        .mapToInt(Person::getAge) // <=> mapToInt(p -> p.getAge())
+                        .average();
         if (averageFemaleAge.isPresent()) {
             System.out.println("Average age of  "
                     + FEMALE + " persons = "
@@ -62,16 +61,16 @@ public class PeopleFilterDemo {
         System.out.print("\n");
         System.out.println("All persons in age order");
         Arrays.stream(personArray)
-                .sorted((p1,p2) -> (p1.getAge() - p2.getAge()))
+                .sorted((p1, p2) -> (p1.getAge() - p2.getAge()))
                 .forEach(e -> System.out.println(e.getName()));
 
         System.out.print("\n");
         System.out.println("First four last names uppercased.");
         Stream<String> fourLastNamesUpperStream =
                 Arrays.stream(personArray)
-                .map(p -> p.getName().getLastName().toUpperCase())
-                .sorted()
-                .limit(4);
+                        .map(p -> p.getName().getLastName().toUpperCase())
+                        .sorted()
+                        .limit(4);
         fourLastNamesUpperStream.forEach(s -> System.out.print(s + ", "));
     }
 }

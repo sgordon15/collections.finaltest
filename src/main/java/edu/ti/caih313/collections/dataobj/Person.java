@@ -7,10 +7,8 @@ public class Person {
     private Name name;
     private Gender gender;
 
-    //private EmailAddress emailAddress;
+    private EmailAddress emailAddress;
 
-    //age in years
-    //TODO -- replace by Date birthday, and getAge that calculates age
     private LocalDate birthDate;
 
     public enum Gender {MALE, FEMALE}
