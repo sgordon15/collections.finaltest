@@ -36,12 +36,9 @@ public class Person {
         return ageNow.getYears();
     }
 
+    // TODO -- implement toString with String.format 10 points
     @Override
     public String toString() {
-        return "Person{" +
-                "name=" + name +
-                ", gender=" + gender +
-                ", birthDate=" + birthDate
-                + "}";
+        return null;
     }
 }

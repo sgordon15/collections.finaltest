@@ -36,8 +36,9 @@ public class Name {
         return Objects.hash(firstName, lastName);
     }
 
+    //TODO -- implement toString using StringBuilder 2 points
     @Override
     public String toString() {
-        return lastName + ", " + firstName;
+        return null;
     }
 }
