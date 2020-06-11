@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.OptionalDouble;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static edu.ti.caih313.collections.dataobj.Person.Gender.*;
@@ -24,14 +25,23 @@ public class FilterAndSortSomePeople {
                 new Person(new Name("Bo", "Peep"), FEMALE, LocalDate.of(1624, Month.FEBRUARY, 23))
         };
 
-        //TODO -- correctly calculate number of MALEs under 40 years of age
-        // 20 points
-        long numMalesUnder40 = 0;
+        long numMalesUnder40 = Arrays.stream(personArray)
+                .filter(p -> p.getGender() == Person.Gender.MALE)
+                .filter(p -> p.getAge() < 40)
+                .count();
         System.out.println("Number of males under 40: " + numMalesUnder40);
 
         System.out.print("\n");
         System.out.println("All FEMALEs in reverse (oldest to youngest) age order");
+        Arrays.stream(personArray)
+                .filter(p -> p.getGender() == FEMALE)
+                .sorted((p1, p2) -> (p2.getAge() - p1.getAge()))
+                .forEach(p -> System.out.println(p.getName()));
         //TODO -- implement code according to above instructions
         // 20 points
+
+        //TEST
+        System.out.println("Testing Person toString method:");
+        Arrays.stream(personArray).forEach(p -> System.out.println(p.toString()));
     }
 }

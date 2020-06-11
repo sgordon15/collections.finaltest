@@ -2,6 +2,7 @@ package edu.ti.caih313.collections.dataobj;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class Person {
     private Name name;
@@ -37,8 +38,16 @@ public class Person {
     }
 
     // TODO -- implement toString with String.format 10 points
-    @Override
-    public String toString() {
-        return null;
-    }
+        @Override
+        public String toString()
+        {
+            String emailToString;
+            if (emailAddress == null) {
+                emailToString = "No recorded email address.";
+            } else {
+                emailToString = emailAddress.getEmailAddress();
+            }
+            return String.format("Person { Name: %s; Gender: %s; Age: %d; Primary Email: %s }",
+                    getName(), getGender(), getAge(), emailToString);
+        }
 }
